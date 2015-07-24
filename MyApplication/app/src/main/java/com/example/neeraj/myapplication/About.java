@@ -1,5 +1,7 @@
 package com.example.neeraj.myapplication;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,6 +14,12 @@ public class About extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+
+        MyFragment frag=new MyFragment();
+        FragmentManager manager=getFragmentManager();
+        FragmentTransaction transaction= manager.beginTransaction();
+        transaction.add(R.id.about_layout,frag,"About frag");
+        transaction.commit();
     }
 
     @Override

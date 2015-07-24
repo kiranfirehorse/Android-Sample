@@ -1,6 +1,7 @@
 package com.example.neeraj.myapplication;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -31,11 +32,14 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        nameField=(TextView)findViewById(R.id.nameField);
+        passwordField=(TextView)findViewById(R.id.passwordField);
+
         loginButton = (Button) findViewById(R.id.loginButton);
         loginButton.setOnClickListener(this);
 
         spinner=(Spinner) findViewById(R.id.spinner1);
-        List<String> list= new ArrayList<String>();
+        List<String> list= new ArrayList<>();
         list.add("Customer");
         list.add("Employee");
         list.add("Intern");
@@ -72,8 +76,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             case R.id.loginButton:
                 //Toast.makeText(MainActivity.this,"Jumanji",Toast.LENGTH_LONG).show();
                 nameField=(TextView)findViewById(R.id.nameField);
-                name=nameField.getText().toString();
                 passwordField=(TextView)findViewById(R.id.passwordField);
+                name=nameField.getText().toString();
                 password=passwordField.getText().toString();
 
                 if(name.equals("admin")&& password.equals("apple")){
