@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:background="#433322">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="QBurst was founded by Prathapan Sethu, Binu Dasappan, and Ansar Shahabudeen in 2004. Since 2005, their professional strength has grown in scale from 25 to 1000+ employees. Over the past decade, the company established offices in the UK, India, Poland, Australia, the UAE, and Singapore."
+        android:id="@+id/textView6"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:textColor="#ffffff" />
+</RelativeLayout>
