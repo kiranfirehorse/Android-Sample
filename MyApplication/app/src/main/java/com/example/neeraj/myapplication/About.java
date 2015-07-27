@@ -6,27 +6,21 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 
-public class About extends ActionBarActivity implements View.OnClickListener{
+public class About extends ActionBarActivity implements Communicator{
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
+        /* Adding Fragment on top
         MyFragment frag=new MyFragment();
         FragmentManager manager=getFragmentManager();
         FragmentTransaction transaction= manager.beginTransaction();
         transaction.add(R.id.about_layout, frag, "About frag");
-        transaction.commit();
-
-        //fragBtn=(Button)findViewById(R.id.fragBtn);
-        //fragBtn.setOnClickListener(About.this);
-
+        transaction.commit();*/
     }
 
     @Override
@@ -52,7 +46,9 @@ public class About extends ActionBarActivity implements View.OnClickListener{
     }
 
     @Override
-    public void onClick(View v) {
-        Toast.makeText(About.this,"Yeah, you pressed next.",Toast.LENGTH_LONG).show();
+    public void respond(String data) {
+        FragmentManager manager=getFragmentManager();
+        HistoryFragment about=(HistoryFragment)manager.findFragmentById(R.id.about_layout);
+        about.changeText(data);
     }
 }

@@ -13,14 +13,26 @@ import android.widget.Button;
  */
 public class MyFragment extends Fragment implements View.OnClickListener{
 
+    Button btn;
+    int counter=0;
+    Communicator comm;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_layout,container,false);
     }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        comm= (Communicator) getActivity();
+        btn=(Button)getActivity().findViewById(R.id.fragBtn);
+        btn.setOnClickListener(this);
+    }
 
     @Override
     public void onClick(View v) {
+        counter++;
+        comm.respond(new String("you clicked that times...!"));
 
     }
 }

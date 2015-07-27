@@ -23,7 +23,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private Button loginButton;
     private TextView nameField,passwordField;
     private String name,password;
-    private String toastMessage;
 
 
 
@@ -74,7 +73,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.loginButton:
-                //Toast.makeText(MainActivity.this,"Jumanji",Toast.LENGTH_LONG).show();
                 nameField=(TextView)findViewById(R.id.nameField);
                 passwordField=(TextView)findViewById(R.id.passwordField);
                 name=nameField.getText().toString();
@@ -85,12 +83,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     startActivity(intent);
                 }
                 else {
-                //        Intent intent = new Intent(MainActivity.this, HomePage.class);
-                //        startActivity(intent);
-                        toastMessage = "Incorrect Credentials !";
-                    Toast.makeText(MainActivity.this, toastMessage, Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this,"Incorrect Credentials !", Toast.LENGTH_LONG).show();
                 }
                 break;
+
         }
     }
 }

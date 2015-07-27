@@ -8,19 +8,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="The company has been recognized as one of the top mobile app developers in India by Clutch (erstwhile SourcingLine) and ranked 36th in Deloitte Technology Fast 50 India (2013). QBurst features in the Deloitte Technology Fast 500 Asia Pacific ranking for 2012, 2013, and 2014."
+        android:text="The company has been recognized as one of the top mobile app developers in India by Clutch (erstwhile Sourcing Line) and ranked 36th in Deloitte Technology Fast 50 India (2013). QBurst features in the Deloitte Technology Fast 500 Asia Pacific ranking for 2012, 2013, and 2014."
         android:id="@+id/textView7"
         android:enabled="true"
         android:layout_marginTop="43dp"
         android:layout_alignParentTop="true"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:layout_alignParentStart="true"
     />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="next"
+        android:text="@string/buttonText"
         android:id="@+id/fragBtn"
         android:layout_below="@+id/textView7"
         android:layout_centerHorizontal="true"
