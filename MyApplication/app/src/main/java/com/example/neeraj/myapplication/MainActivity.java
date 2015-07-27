@@ -20,7 +20,7 @@ import java.util.List;
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
     private Spinner spinner;
-    private Button loginButton;
+    private Button loginButton,registerButton;
     private TextView nameField,passwordField;
     private String name,password;
 
@@ -37,12 +37,15 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         loginButton = (Button) findViewById(R.id.loginButton);
         loginButton.setOnClickListener(this);
 
+        registerButton=(Button) findViewById(R.id.registerButton);
+        registerButton.setOnClickListener(this);
+
         spinner=(Spinner) findViewById(R.id.spinner1);
         List<String> list= new ArrayList<>();
         list.add("Customer");
         list.add("Employee");
         list.add("Intern");
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,list);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, list);
         spinner.setAdapter(dataAdapter);
     }
 
@@ -72,7 +75,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.loginButton:
+            case R.id.loginButton:  // Starting login Activity
                 nameField=(TextView)findViewById(R.id.nameField);
                 passwordField=(TextView)findViewById(R.id.passwordField);
                 name=nameField.getText().toString();
@@ -86,7 +89,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                         Toast.makeText(MainActivity.this,"Incorrect Credentials !", Toast.LENGTH_LONG).show();
                 }
                 break;
-
+            case R.id.registerButton: // Starting Register Activity
+                Intent intent= new Intent(MainActivity.this,Register.class);
+                startActivity(intent);
         }
     }
 }

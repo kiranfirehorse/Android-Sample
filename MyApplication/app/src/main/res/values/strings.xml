@@ -8,4 +8,5 @@
     <string name="title_activity_about">About</string>
     <string name="buttonText">next</string>
     <string name="registrationButtonText">Register</string>
+    <string name="title_activity_register">Register</string>
 </resources>
