@@ -9,4 +9,5 @@
     <string name="buttonText">next</string>
     <string name="registrationButtonText">Register</string>
     <string name="title_activity_register">Register</string>
+    <string name="title_activity_display_registration">DisplayRegistration</string>
 </resources>

@@ -90,6 +90,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 }
                 break;
             case R.id.registerButton: // Starting Register Activity
+
                 Intent intent= new Intent(MainActivity.this,Register.class);
                 startActivity(intent);
         }

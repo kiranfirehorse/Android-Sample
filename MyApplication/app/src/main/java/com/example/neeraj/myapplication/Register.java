@@ -2,30 +2,38 @@ package com.example.neeraj.myapplication;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 
-public class Register extends ActionBarActivity {
+public class Register extends ActionBarActivity implements View.OnClickListener {
 
 
     private Spinner spinner;
-    private DatePicker datePicker;
     private Calendar calendar;
     private TextView dateView;
     private int year, month, day;
+    private Button regSubmitBtn;
+    private RegisteredEmployee emp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +42,8 @@ public class Register extends ActionBarActivity {
 
 
         spinner=(Spinner) findViewById(R.id.regNewSpinner);
+        regSubmitBtn=(Button) findViewById(R.id.regSubmitBtn);
+        regSubmitBtn.setOnClickListener(this);
 
         List<String> list= new ArrayList<>();
         list.add("Customer");
@@ -103,5 +113,49 @@ public class Register extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        String name=((TextView)findViewById(R.id.regNameEditText)).getText().toString();
+        String type=((Spinner)findViewById(R.id.regNewSpinner)).getSelectedItem().toString();
+        String mobileno= ((TextView)findViewById(R.id.regMobileEditText)).getText().toString();
+        String email=((TextView)findViewById(R.id.regEmailEditText)).getText().toString();
+        int genId=((RadioGroup)findViewById(R.id.GenderRadioGroup)).getCheckedRadioButtonId();
+        String gender;
+        if(genId==((RadioButton)findViewById(R.id.radioButton)).getId()){
+            gender="Male";
+        }
+        else{
+            gender ="Female";
+        }
+        String hobby =" ";
+        CheckBox photo=(CheckBox)findViewById(R.id.checkPhoto);
+        CheckBox driving=(CheckBox)findViewById(R.id.checkDriving);
+        CheckBox sing=(CheckBox)findViewById(R.id.checkSinging);
+        TextView otherHobbies=(TextView)findViewById(R.id.regHobbiesEditText);
+        if(photo.isChecked()) {
+            hobby = " Photography ";
+        }
+        if(driving.isChecked()){
+            hobby=hobby+" Driving ";
+        }
+        if (sing.isChecked()){
+            hobby=hobby+" Singing ";
+        }
+        if(!otherHobbies.getText().toString().matches("")){
+            hobby=hobby+otherHobbies.getText().toString();
+        }
+
+        String dob=((TextView)findViewById(R.id.dateView)).getText().toString();
+        String password=((TextView)findViewById(R.id.regPasswordEditText)).getText().toString();
+        String about=((TextView)findViewById(R.id.regAboutMeEditText)).getText().toString();
+
+        RegisteredEmployee emp;
+        emp=new RegisteredEmployee(name,type,mobileno,email,gender,hobby,dob,password,about);
+
+        Intent intent=new Intent(Register.this,DisplayRegistration.class);
+        intent.putExtra("Employee",emp);
+        startActivity(intent);
     }
 }
